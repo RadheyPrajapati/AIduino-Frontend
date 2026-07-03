@@ -1,0 +1,108 @@
+.arduino-console {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  background: #090c15;
+  color: #c9d1d9;
+  font-family: 'Fira Code', 'Consolas', 'Courier New', monospace;
+  font-size: 12px;
+  overflow: hidden;
+}
+
+.console-header {
+  padding: 8px 16px;
+  background: #0f1322;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border-color);
+  font-weight: 500;
+  flex-shrink: 0;
+}
+
+.console-header span {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-primary);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.console-header button {
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  padding: 4px 12px;
+  cursor: pointer;
+  border-radius: 4px;
+  margin-left: 8px;
+  font-size: 11px;
+  font-weight: 500;
+  transition: all 0.15s ease;
+}
+
+.console-header button:hover {
+  background: var(--border-color);
+  color: var(--text-primary);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.console-header button:active {
+  transform: scale(0.97);
+}
+
+/* Body */
+.console-body {
+  flex: 1;
+  padding: 12px 16px;
+  overflow-y: auto;
+  background: #090c15;
+  line-height: 1.6;
+  min-height: 0;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.1) transparent;
+}
+
+.console-body::-webkit-scrollbar {
+  width: 6px;
+}
+
+.console-body::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.console-body::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+}
+
+.console-line {
+  white-space: pre-wrap;
+  padding: 2px 0;
+  color: #f1e05a;
+  word-break: break-word;
+}
+
+/* Input terminal line */
+.console-input {
+  border: none;
+  outline: none;
+  padding: 10px 16px;
+  background: #05060b;
+  color: var(--text-primary);
+  font-family: 'Fira Code', 'Consolas', 'Courier New', monospace;
+  font-size: 12px;
+  border-top: 1px solid var(--border-color);
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+}
+
+.console-input::placeholder {
+  color: var(--text-muted);
+}
+
+.console-input:focus {
+  background: #090c15;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.5);
+}

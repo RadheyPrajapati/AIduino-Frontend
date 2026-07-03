@@ -1,0 +1,199 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: var(--bg-secondary);
+  border-left: 1px solid var(--border-color);
+  min-height: 0;
+  overflow: hidden;
+}
+
+.header {
+  padding: 14px 18px;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.3px;
+  background-color: var(--bg-tertiary);
+  color: var(--accent-cyan);
+  text-align: center;
+  flex-shrink: 0;
+  border-bottom: 1px solid var(--border-color);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.chat {
+  flex: 1;
+  min-height: 0;  
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+}
+
+.message {
+  max-width: 85%;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-size: 13.5px;
+  line-height: 1.5;
+  word-wrap: break-word;
+  flex-shrink: 0;
+  animation: messageEnter 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes messageEnter {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.user {
+  align-self: flex-end;
+  background: linear-gradient(135deg, var(--accent-blue), var(--accent-indigo));
+  color: #ffffff;
+  border-bottom-right-radius: 2px;
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.15);
+}
+
+.model {
+  align-self: flex-start;
+  background-color: var(--bg-tertiary);
+  color: var(--text-primary);
+  border-bottom-left-radius: 2px;
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-sm);
+}
+
+/* ================= Suggested prompts ================= */
+.suggestions {
+  margin-top: auto;
+  padding: 8px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.suggestion {
+  padding: 10px 14px;
+  border-radius: 8px;
+  background: var(--bg-tertiary);
+  color: var(--text-secondary);
+  font-size: 12.5px;
+  font-weight: 500;
+  cursor: pointer;
+  border: 1px solid var(--border-color);
+  transition: all 0.2s ease;
+  text-align: left;
+  line-height: 1.4;
+}
+
+.suggestion:hover {
+  background: var(--border-color);
+  color: var(--text-primary);
+  border-color: rgba(255, 255, 255, 0.15);
+  transform: translateY(-1px);
+}
+
+.suggestion:active {
+  transform: translateY(0);
+}
+
+/* ================= Input Area ================= */
+.inputWrapper {
+  display: flex;
+  align-items: center;
+  padding: 12px 16px;
+  border-top: 1px solid var(--border-color);
+  background-color: var(--bg-tertiary);
+  flex-shrink: 0;
+  gap: 10px;
+}
+
+.chatInput {
+  flex: 1;
+  padding: 9px 14px;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  font-size: 13px;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.chatInput::placeholder {
+  color: var(--text-muted);
+}
+
+.chatInput:focus {
+  border-color: var(--accent-cyan);
+  background-color: var(--bg-primary);
+  box-shadow: 0 0 0 1px var(--accent-cyan);
+}
+
+.sendButton {
+  padding: 8px;
+  border-radius: 8px;
+  border: none;
+  background-color: var(--accent-cyan);
+  color: #070a13;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 3px 8px rgba(56, 189, 248, 0.2);
+  flex-shrink: 0;
+}
+
+.sendButton svg {
+  width: 16px;
+  height: 16px;
+}
+
+.sendButton:hover {
+  background-color: #7dd3fc;
+  transform: scale(1.04) translateY(-1px);
+  box-shadow: 0 4px 12px rgba(56, 189, 248, 0.35);
+}
+
+.sendButton:active {
+  transform: scale(0.98) translateY(0);
+}
+
+/* Modern AI Thinking indicator */
+.aiThinking {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 0;
+}
+
+.shimmer {
+  width: 48px;
+  height: 6px;
+  border-radius: 3px;
+  background: linear-gradient(
+    90deg,
+    var(--border-color) 25%,
+    rgba(255, 255, 255, 0.15) 50%,
+    var(--border-color) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmerMove 1.4s infinite linear;
+}
+
+@keyframes shimmerMove {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
